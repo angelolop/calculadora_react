@@ -5,7 +5,7 @@ import Calculadora from './components/Calculadora'
 function App() {
     return (
         <div>
-            <h1>Calculadora</h1>
+            <h1>Calculadora REACT</h1>
             <Calculadora />
         </div>
     )

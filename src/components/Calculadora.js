@@ -1,33 +1,33 @@
 import React, { useState } from 'react'
 import './index.css'
-import Display from './Display'
+import Tela from './Tela'
 import Botao from './Botao'
 
 
 export default function Calculadora() {
 
-    const [valorDisplay, setValorDisplay] = useState('0')
-    const [limparDisplay, setLimparDisplay] = useState(false)
-    const [operacao, setOperacao] = useState(null)
-    const [valores, setValores] = useState([0, 0])
-    const [indice, setIndice] = useState(0)
+    const [valorTela, setValorTela] = useState('0');
+    const [limparTela, setLimparTela] = useState(false);
+    const [operacao, setOperacao] = useState(null);
+    const [valores, setValores] = useState([0, 0]);
+    const [indice, setIndice] = useState(0);
 
     function _adicionar(label) {
 
-        // validar: apenas um ponto no displey
-        if (label === '.' && valorDisplay.includes('.')) return
+        // Dispõe de um só ponto na tela da calculadora
+        if (label === '.' && valorTela.includes('.')) return;
 
-        //validar: retirar zero a esquerda e Validar: checar variavel limparDisplay
-        const check_limparDisplay = valorDisplay === '0' || limparDisplay
-        const valorAtual = check_limparDisplay ? '' : valorDisplay
+        // Validar o zero que está na esquerda e valida a variável ChecarTela
+        const check_limparTela = valorTela === '0' || limparTela
+        const valorAtual = check_limparTela ? '' : valorTela
 
-        const novo_valorDisplay = valorAtual + label
+        const novo_valorTela = valorAtual + label
         const novos_valores = [...valores]
 
-        if (label !== '.') novos_valores[indice] = parseFloat(novo_valorDisplay)
+        if (label !== '.') novos_valores[indice] = parseFloat(novo_valorTela)
 
-        setValorDisplay(novo_valorDisplay)
-        setLimparDisplay(false)
+        setValorTela(novo_valorTela)
+        setLimparTela(false)
         setValores(novos_valores)
     }
 
@@ -39,7 +39,7 @@ export default function Calculadora() {
 
             setIndice(1)
             setOperacao(operacao_clicada)
-            setLimparDisplay(true)
+            setLimparTela(true)
 
         } else {
 
@@ -52,8 +52,8 @@ export default function Calculadora() {
 
             novos_valores[1] = 0
 
-            setValorDisplay(novos_valores[0])
-            setLimparDisplay(!igual)
+            setValorTela(novos_valores[0])
+            setLimparTela(!igual)
             setOperacao(igual ? null : operacao_clicada)
             setValores(novos_valores)
             setIndice(igual ? 0 : 1)
@@ -62,8 +62,8 @@ export default function Calculadora() {
     }
 
     function _limpar() {
-        setValorDisplay('0')
-        setLimparDisplay(false)
+        setValorTela('0')
+        setLimparTela(false)
         setOperacao(null)
         setValores([0, 0])
         setIndice(0)
@@ -71,9 +71,9 @@ export default function Calculadora() {
 
     return (
         <div className='calculadora'>
-            <Display valor={valorDisplay}></Display>
+            <Tela valor={valorTela}></Tela>
 
-            <Botao label='AC' funcao={_limpar} span='span-3'></Botao>
+            <Botao label='C' funcao={_limpar} span='span-3'></Botao>
             <Botao label='/' funcao={_operacao} operacao></Botao>
             <Botao label='7' funcao={_adicionar} ></Botao>
             <Botao label='8' funcao={_adicionar} ></Botao>

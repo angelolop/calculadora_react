@@ -1,15 +1,13 @@
-@import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Josefin+Sans:wght@200&display=swap');
 
-body, html { font-family: sans-serif; height: 100%; }
+body, html {font-family: 'Josefin Sans', sans-serif; height: 100%; font-weight:bold }
 * { box-sizing: border-box; overflow: hidden; margin: 0; padding: 0; }
 
 :root {
-  --cor-button: #f0f0f0;
-  --border-button: solid 1px rgb(194, 194, 194);
-  --border-button-op: solid 1px rgb(0, 105, 209);
+  --cor-button: #ffffff;
 }
 
-/* ------------- background ------------- */
+/* background */
 
 #root { 
   height: 100%; 
@@ -19,56 +17,52 @@ body, html { font-family: sans-serif; height: 100%; }
   justify-content: center; 
   text-align: center; 
   color: #fff; 
-  background: linear-gradient(to left, #373b44, #4286f4);
+  background: #D3DEDC;
 }
 
-/* ------------- titulo ------------- */
-h1 { font-size: 3rem; padding: 0 6px 20px; font-family: 'Pacifico', cursive; color: rgb(231, 231, 231); }
+/*  Título */
+h1 { font-size: 4rem; padding: 10px 0px 30px 10px; font-family: 'Comfortaa', cursive; color: #92A9BD; }
 
 
-/* ------------- corpo da calculadora ------------- */
+/* Calculadora */
 .calculadora {
-  height: 320px;
-  width: 235px;
-  border-radius: 5px;
+  width: 260px;
+  height: 325px;
   display: grid;
   grid-template-columns: repeat(4, 25%);
   grid-template-rows: 1fr repeat(5, 48px);
   margin: auto;
+  border-radius: 0px 0px 20px 20px;
 }
 .span-3 { grid-column: span 3; }
 .span-2 { grid-column: span 2; }
 
 
-/* ------------- display ------------- */
-.display {
+/* A tela da calculadora */
+.tela {
   grid-column: span 4;
-  background-color: #0004;
+  background-color: #7C99AC;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   padding: 20px;
   font-size: 1.8rem;
+  border-radius: 20px 20px 0px 0px;
 }
 
 
-/* ------------- button ------------- */
+/* Botões */
 .button {
-  font-size: 1.4rem;
-  background-color: var(--cor-button);
-  color: rgb(46, 46, 46);
+  font-size: 1.5rem;
+  color: #716f6f;
   border: none;
-  border-right: var(--border-button);
-  border-bottom: var(--border-button);
   outline: none;
 }
-.button:active { opacity: .7; }
+.button:active { opacity: .8; }
 
 
 .button.op { 
-  background-color: dodgerblue; 
+  background-color: rgba(9, 123, 168, 0.508); 
   color: white;   
-  border-right: var(--border-button-op);
-  border-bottom: var(--border-button-op);
 }
-.button.op:active { opacity: .5; }
+.button.op:active { opacity: .8; }
